@@ -3,10 +3,10 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>title</th>
-                    <th>text</th>
-                    <th>date</th>
-                    <th>action</th>
+                    <th >title</th>
+                    <th >text</th>
+                    <th >date</th>
+                    <th >action</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +38,7 @@
 <script>
 
 export default{
-    
+
 }
 
 </script>
