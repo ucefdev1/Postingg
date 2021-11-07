@@ -12,8 +12,8 @@
             <tbody>
                 <tr v-for="post in posts">
                     <td>{{post.title}}</td>
-                    <td>{{post.post_text}}</td>
-                    <td></td>
+                    <td>{{post.post_text.substring(0,50)}}</td>
+                    <td>{{post.created_at}}</td>
                     <td></td>
                 </tr>
             </tbody>

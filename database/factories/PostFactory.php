@@ -15,7 +15,7 @@ class PostFactory extends Factory
     {
         return [
             'title'=>$this->faker->word(),
-            'post_text'=>$this->faker->sentence()
+            'post_text'=>$this->faker->text(500)
         ];
     }
 }
