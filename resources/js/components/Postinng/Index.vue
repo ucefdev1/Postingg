@@ -11,11 +11,19 @@
                 <tr>
                     <th >
                         <a href="#" @click.prevent="change_sort('title')"> Title </a>
-                        <span>&uarr;</span>
-                          <span>&darr;</span>
+                        <span v-if="this.sort_field == 'title' && this.sort_direction == 'asc'">&uarr;</span>
+                          <span v-if="this.sort_field == 'title' && this.sort_direction == 'desc'">&darr;</span>
                     </th>
-                    <th >text</th>
-                    <th >date</th>
+                    <th >
+                            <a href="#" @click.prevent="change_sort('post_text')"> Post Text </a>
+                        <span  v-if="this.sort_field == 'post_text' && this.sort_direction == 'asc'">&uarr;</span>
+                          <span v-if="this.sort_field == 'post_text' && this.sort_direction == 'desc'">&darr;</span>
+                    </th>
+                    <th >
+                            <a href="#" @click.prevent="change_sort('created_at')"> Date </a>
+                        <span v-if="this.sort_field == 'created_at' && this.sort_direction == 'asc'">&uarr;</span>
+                          <span v-if="this.sort_field == 'created_at' && this.sort_direction == 'desc'" >&darr;</span>
+                    </th>
                     <th >action</th>
                 </tr>
             </thead>
