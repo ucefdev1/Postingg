@@ -1,5 +1,11 @@
 <template>
-    <div>
+    <div class="p-5">
+        <select class="form-control col_1">
+            <option>-- Chose category --</option>
+            <option v-for="category in categories" :value="category.id"> 
+                {{category.name}}
+            </option>
+        </select>
         <table class="table">
             <thead>
                 <tr>
@@ -28,10 +34,15 @@
 export default{
      data(){
          return {
-             posts: {}
+             posts: {},
+             categories: {}
          }
      },
      mounted(){
+         axios.get('api/categories')
+				.then(response => {
+					this.categories = response.data.data;
+				});
          this.getResults();
        /*  axios.get('/api/posts').then(response =>{
              this.posts = response.data.data;
@@ -49,3 +60,11 @@ export default{
 }
 
 </script>
+
+
+<style scoped>
+.col_1{
+    width: 30%;
+    margin-left: auto;
+}
+</style>
