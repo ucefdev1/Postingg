@@ -1,6 +1,8 @@
 <template>
     <div>
-        Hello, this is crrate part on vue router
+        <div class="container">
+            llsl
+        </div>
     </div>
 </template>
 

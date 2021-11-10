@@ -9,10 +9,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Posts list</a>
+          <router-link to="/" class="nav-link">Posts List</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Add new Post</a>
+          <router-link to="/posts/create" class="nav-link">create New Post</router-link>
         </li>
       </ul>
     </div>
