@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('posts',[PostController::class,'index']);
+//Route::get('posts',[PostController::class,'index']);
+
+Route::apiResource('posts',PostController::class);    
 
 Route::get('categories',[CategoryController::class,'index']);

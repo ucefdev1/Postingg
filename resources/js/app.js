@@ -9,25 +9,10 @@ import VureRouter from 'vue-router';
 Vue.use(VueRouter)
 
 import App from './components/App.vue'
-import postinngIndex from './components/Postinng/Index.vue'
-import postsCreate from './components/Postinng/create.vue'
 
+import routes   from '../routes'
 
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            component: postinngIndex,
-            name: 'posts.index'
-        },
-        {
-            path: '/posts/create',
-            component: postsCreate,
-            name: 'posts.create'
-        },
-    ]
-})
+const router = new VueRouter(routes)
 
 Vue.component('pagination', require('laravel-vue-pagination'));
 
