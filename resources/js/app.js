@@ -18,11 +18,13 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            component: postinngIndex
+            component: postinngIndex,
+            name: 'posts.index'
         },
         {
             path: '/posts/create',
-            component: postsCreate
+            component: postsCreate,
+            name: 'posts.create'
         },
     ]
 })
