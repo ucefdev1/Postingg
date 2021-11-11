@@ -23,6 +23,9 @@
               {{errors.category_id[0]}}
           </div>
           <br/>
+          Thumbnail:
+          <input type="file" @change="select_file">
+          <br/>
           <input type="submit" 
           :value="form_submitting ? 'saving post...' : 'save post' " 
           :disabled="form_submitting"
@@ -41,7 +44,8 @@ export default {
             fields: {
                 title:'',
                 post_text:'',
-                category_id: ''
+                category_id: '',
+                thumbnail:null
             },
             errors: {
             },
@@ -57,8 +61,17 @@ export default {
    methods: {
        submit_form(){
            //console.log('test');
+          
            this.form_submitting = true;
-              axios.post('api/posts',this.fields)
+
+              let fields = new FormData();
+              for (let key in this.fields){
+                  fields.append(key, this.fields[key]);
+              }
+
+
+
+              axios.post('api/posts',fields)
 				.then(response => {
 					this.$router.push('/');
                                this.form_submitting = false;
@@ -70,7 +83,10 @@ export default {
 
                     }
                 });
-       }
+       },
+       select_file(event){
+               this.fields.thumbnail = event.target.files[0];
+           }
    }
 
 }
