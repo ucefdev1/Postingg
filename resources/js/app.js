@@ -4,11 +4,18 @@ require('./bootstrap');
 import { fromPairs } from 'lodash';
 import Vue from 'vue'
 import VueRouter from 'vue-router';
+Vue.use(VueRouter);
 
-import VureRouter from 'vue-router';
-Vue.use(VueRouter)
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
 
 import App from './components/App.vue'
+
+//import alertify from 'alertifyjs';
+//Vue.use(alertify);
+
+import Notifications from 'vue-notification'
+Vue.use(Notifications)
 
 import routes   from '../routes'
 

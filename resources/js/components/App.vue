@@ -22,7 +22,10 @@
  <main>
      <div class="conatainer">
            <router-view></router-view>
+          <notifications/>
      </div>
+    
+
  </main>
     </div>
 </template>

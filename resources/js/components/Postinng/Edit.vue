@@ -76,11 +76,15 @@ export default {
 
               axios.put('/api/posts/'+this.$route.params.id,this.fields)
 				.then(response => {
+                   // this.$swal('Post Updated Successfully')
+                //   alertify.alert("This is an alert dialog.", function(){alertify.message('OK'); });
+                this.$notify('Post Updated Successfully');
 					this.$router.push('/');
                                this.form_submitting = false;
-
 				}).catch(error => {
                     if(error.response.status === 422){
+                                           // this.$swal({icon:'error',title: 'Error happened'})
+
                         this.errors = error.response.data.errors;
 
                     }
