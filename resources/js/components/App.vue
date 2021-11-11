@@ -12,7 +12,9 @@
           <router-link exact :to="{name: 'posts.index'}" class="nav-link">Posts List</router-link>
         </li>
         <li class="nav-item">
-          <router-link exact :to="{name: 'posts.create'}" class="nav-link">create New Post</router-link>
+          <router-link
+  
+           exact :to="{name: 'posts.create'}" class="nav-link">create New Post</router-link>
         </li>
       </ul>
     </div>

@@ -33,7 +33,9 @@
                     <td>{{post.post_text.substring(0,50)}}</td>
                     <td>{{post.created_at}}</td>
                     <td>
-                     <router-link :to="{name: 'posts.edit',params: {id: post.id}}">Edit</router-link>
+                     <router-link class="btn btn-info btn-sm" :to="{name: 'posts.edit',params: {id: post.id}}">Edit</router-link>
+                               <button @click="delete_post(post.id)" class="btn btn-danger btn-sm">Delete</button>
+
                     </td>
                 </tr>
             </tbody>
@@ -70,7 +72,25 @@ export default{
      },
      methods: {
 		// Our method to GET results from a Laravel endpoint
-		getResults(page = 1) {
+		delete_post(post_id){
+             axios.delete('/api/posts/'+post_id)
+				.then(response => {
+                   // this.$swal('Post deleted Successfully')
+                //   alertify.alert("This is an alert dialog.", function(){alertify.message('OK'); });
+                this.$notify('Post deleted successfully');
+					this.getResults();
+				}).catch(error => {
+                    if(error.response.status === 422){
+                                           // this.$swal({icon:'error',title: 'Error happened'})
+
+                        this.errors = error.response.data.errors;
+
+                    }
+
+                });
+
+        }
+        ,getResults(page = 1) {
 			axios.get('api/posts?page=' + page 
             + '&category_id=' + this.category_id
             + '&sort_field=' + this.sort_field
